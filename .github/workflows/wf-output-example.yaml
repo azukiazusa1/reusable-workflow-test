@@ -2,7 +2,13 @@ name: Output Example
 
 on:
   workflow_call:
-
+    outputs:
+      build:
+        description: 'ビルドの成否'
+        value: ${{ jobs.output-job.outputs.build }}
+      test:
+        description: 'テストの成否'
+        value: ${{ jobs.output-job.outputs.test }}
 jobs:
   output-job:
     runs-on: ubuntu-latest
