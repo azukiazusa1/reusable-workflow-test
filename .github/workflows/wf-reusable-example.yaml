@@ -2,10 +2,25 @@ name: Reusable Workflow Example
 
 on:
   workflow_call:
+    inputs:
+      environment:
+        description: 'デプロイ先の環境'
+        required: true
+        type: string
+      timeout:
+        description: 'デプロイがタイムアウトされるまでの時間（ミリ秒）'
+        required: false
+        default: 10000
+        type: number
 
 jobs:
   echo-job:
     runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: ${{ inputs.environment }}
+      TIMEOUT: ${{ toJSON(inputs.timeout) }}
     steps:
-      - name: Echo Hello
-        run: echo "Hello"
+      - name: Echo Environment
+        run: echo "Deploy to $ENVIRONMENT"
+      - name: Echo Timeout
+        run: echo "Timeout $TIMEOUT"
