@@ -6,6 +6,7 @@ on:
 
 jobs:
   call-workflow3:
+    id: call-workflow3
     uses: ./.github/workflows/wf-output-example.yaml
 
   check-output:
