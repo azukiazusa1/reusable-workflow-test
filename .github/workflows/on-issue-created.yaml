@@ -7,3 +7,5 @@ on:
 jobs:
   call-workflow:
     uses: ./.github/workflows/wf-reusable-example.yaml
+    with:
+      environment: 'staging'
