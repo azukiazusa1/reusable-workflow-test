@@ -1,0 +1,9 @@
+name: On Issue Created
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/wf-reusable-example.yaml
