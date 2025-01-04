@@ -9,3 +9,5 @@ jobs:
     uses: ./.github/workflows/wf-reusable-example.yaml
     with:
       environment: 'staging'
+  call-workflow2:
+    uses: ./.github/workflows/wf-echo-secrets.yaml
