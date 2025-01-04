@@ -7,7 +7,5 @@ on:
 jobs:
   call-workflow2:
     uses: ./.github/workflows/wf-echo-secrets.yaml
-    with:
-      environment: 'staging'
     secrets:
       SUPERSECRET: ${{ secrets.SUPERSECRET }}
