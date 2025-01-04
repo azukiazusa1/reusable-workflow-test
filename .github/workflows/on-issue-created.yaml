@@ -6,7 +6,6 @@ on:
 
 jobs:
   call-workflow3:
-    id: call-workflow3
     uses: ./.github/workflows/wf-output-example.yaml
 
   check-output:
@@ -15,6 +14,6 @@ jobs:
     needs: call-workflow3
     steps:
       - name: Check build output
-        run: echo ${{ steps.call-workflow3.outputs.build }}
+        run: echo ${{ needs.call-workflow3.outputs.build }}
       - name: Check test output
-        run: echo ${{ steps.call-workflow3.outputs.test }}
+        run: echo ${{ needs.call-workflow3.outputs.test }}
